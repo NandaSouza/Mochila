@@ -1,0 +1,13 @@
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\bin\Debug\WpfAppATM.exe.config
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\bin\Debug\WpfAppATM.exe
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\bin\Debug\WpfAppATM.pdb
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.csprojResolveAssemblyReference.cache
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\MainWindow.baml
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\MainWindow.g.cs
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\App.g.cs
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM_MarkupCompile.cache
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.g.resources
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.Properties.Resources.resources
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.csproj.GenerateResource.Cache
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.exe
+c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.pdb
