@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WpfAppATM
 {
     /// <summary>
@@ -20,35 +21,38 @@ namespace WpfAppATM
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[] resultado = new int[3];
 
-        
         public MainWindow()
         {
             InitializeComponent();
-
-            
         }
 
         public static void FormatoMoeda(ref TextBox txt)
         {
 
             String n = string.Empty;
-            Double v = 0;
+            int v = 0;
             try
             {
-                n = txt.Text.Replace(",", "").Replace(".", "");
-                if (n.Equals(""))
-                    n = "";
-                n = n.PadLeft(3, '0');
-                if (n.Length > 3 & n.Substring(0, 1) == "0")
-                    n = n.Substring(1, n.Length - 1);
-                v = Convert.ToDouble(n) / 100;
+
+                v = Convert.ToInt32(n);
                 txt.Text = String.Format("{0:N}", v);
                 txt.SelectionStart = txt.Text.Length;
 
+                /* n = txt.Text.Replace(",", "").Replace(".", "");
+                 if (n.Equals(""))
+                     n = "";
+                 n = n.PadLeft(3, '0');
+                 if (n.Length > 3 & n.Substring(0, 1) == "0")
+                     n = n.Substring(1, n.Length - 1);
+                 //v = Convert.ToDouble(n) / 100;
+                 txt.Text = String.Format("{0:N}", v);
+                 txt.SelectionStart = txt.Text.Length;
+                 */
             }
-            catch (Exception) 
-            { 
+            catch (Exception)
+            {
             }
         }
 
@@ -86,25 +90,41 @@ namespace WpfAppATM
         {
             FormatoMoeda(ref txtResult);
         }
-
+        
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-
+            //Result1.Text = resultado[2].ToString() ;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txtResult.Clear();
+            result1.Clear();
+            result2.Clear();
+            result3.Clear();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
+
             this.Close();
         }
 
+        private void Button_Click_Enter(object sender, RoutedEventArgs e)
+        {
 
-      
-        
+            Button b = (Button)sender;
+
+            int[] valor = { 10, 50, 100 };
+            int[] valor2 = { 100, 50, 10 };
+            int[] quantidade = { 100, 100, 100 };
+            int valorSaque = Convert.ToInt32(txtResult.Text);//260;
+
+            resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
+
+            result1.Text = resultado[2].ToString();
+            result2.Text = resultado[1].ToString();
+            result3.Text = resultado[0].ToString();
+        }
     }
 }

@@ -11,3 +11,16 @@ c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug
 c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.csproj.GenerateResource.Cache
 c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.exe
 c:\users\jô\documents\visual studio 2013\Projects\WpfAppATM\WpfAppATM\obj\Debug\WpfAppATM.pdb
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\bin\Debug\WpfAppATM.exe.config
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.exe
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.pdb
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\bin\Debug\WpfAppATM.exe
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\bin\Debug\WpfAppATM.pdb
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.csprojResolveAssemblyReference.cache
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\MainWindow.baml
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\MainWindow.g.cs
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\App.g.cs
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM_MarkupCompile.cache
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.g.resources
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.Properties.Resources.resources
+C:\Users\Ramon\Documents\GitHub\MochilaOusada\WpfAppATM\obj\Debug\WpfAppATM.csproj.GenerateResource.Cache
