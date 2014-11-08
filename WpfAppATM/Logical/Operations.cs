@@ -22,10 +22,11 @@ namespace WpfAppATM
                     {
                         x[i] = x[i] + 1;
                         change = change - value[i];
+                        i++;
                     }
                     else if (change < value[0] && change != 0)
                     {
-                        
+
                         throw new Exception("Não é possivel retirar o valor solicitado");
 
                     }
