@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAppATM
 {
-    class Cedula
+    public class Cedula : IComparable<Cedula>
     {
         public int Value { get; set; }
         public int Amount { get; set; }
@@ -22,6 +22,23 @@ namespace WpfAppATM
             this.Amount = amount;
         }
 
-
+        public int CompareTo(Cedula other)
+        {
+            if (this.Amount > other.Amount)
+            {
+                return -1;
+            }
+            else
+            {
+                if (this.Amount == other.Amount && this.Value > other.Value)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
     }
 }

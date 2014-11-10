@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAppATM
 {
-   public static class Operations
+    public static class Operations
     {
         public static int[] Withdraw(int[] quantity, int[] value, int numberOfValues, int change)
         {
@@ -33,6 +33,59 @@ namespace WpfAppATM
                 }
             }
             return x;
-        }    
+        }
+
+        public static Dictionary<int, Cedula> Withdraw(List<Cedula> storedMoney, int requiredAmount)
+        {
+            var resultDictionary = new Dictionary<int, Cedula>();
+            var sortedAmount = storedMoney;
+            int currentAmount = 0;
+
+
+            while (currentAmount < requiredAmount)
+            {
+                bool billNotFound = true;
+                sortedAmount.Sort();
+               
+                foreach (var bill in sortedAmount)
+                {
+                    //verifica se o valor somado autal + o valor da cédula é maior que o total requerido
+                    if (bill.Value + currentAmount <= requiredAmount)
+                    {
+                        billNotFound = false;
+
+                        bill.Amount--;
+                        currentAmount += bill.Value;
+
+                        //adiciona cédula no dicionário de retorno
+                        if (!resultDictionary.ContainsKey(bill.Value))
+                        {
+                            //se o dicionário ainda não possui a cédula, cria uma cédula e adiciona no 
+                            resultDictionary.Add(bill.Value, new Cedula()
+                            {
+                                Value = bill.Value,
+                                Amount = 1,
+                            });
+                        }
+                        else
+                        {
+                            //se o dicionário já possui a cédula, apenas aumenta a quantidade
+                            resultDictionary[bill.Value].Amount++;
+                        }
+
+                        break;
+                    }
+                }
+
+                if (billNotFound)
+                {
+                    throw new Exception("Não é possível sacar esse valor");
+                }
+            }
+
+
+            return resultDictionary;
+        }
+
     }
 }

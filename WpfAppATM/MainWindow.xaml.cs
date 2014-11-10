@@ -90,7 +90,7 @@ namespace WpfAppATM
         {
             FormatoMoeda(ref txtResult);
         }
-        
+
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             //Result1.Text = resultado[2].ToString() ;
@@ -99,9 +99,9 @@ namespace WpfAppATM
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txtResult.Clear();
-            result1.Clear();
-            result2.Clear();
-            result3.Clear();
+            nota10.Clear();
+            nota50.Clear();
+            nota100.Clear();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -120,11 +120,17 @@ namespace WpfAppATM
             int[] quantidade = { 100, 100, 100 };
             int valorSaque = Convert.ToInt32(txtResult.Text);//260;
 
-            resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
+            var cedulasNoCaixa = new List<Cedula> { 
+                new Cedula() { Value = 10, Amount = 10, }, 
+                new Cedula() { Value = 50, Amount = 10, },
+                new Cedula() { Value = 100, Amount = 10, } 
+            };
+            var result = Operations.Withdraw(cedulasNoCaixa, valorSaque);
+            //resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
 
-            result1.Text = resultado[2].ToString();
-            result2.Text = resultado[1].ToString();
-            result3.Text = resultado[0].ToString();
+            nota10.Text = (result.ContainsKey(10) ? result[10].Amount : 0).ToString();
+            nota50.Text = (result.ContainsKey(50) ? result[50].Amount : 0).ToString();
+            nota100.Text = (result.ContainsKey(100) ? result[100].Amount : 0).ToString();
         }
     }
 }
