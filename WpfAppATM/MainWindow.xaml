@@ -39,5 +39,6 @@
         <TextBox x:Name="notasSacadas10" HorizontalAlignment="Left" Height="23" Margin="415,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.453,0.174" TextChanged="TextBox_TextChanged_1" BorderBrush="#FFB91E3A"/>
         <TextBox x:Name="notasSacadas50" HorizontalAlignment="Left" Height="23" Margin="415,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.453,0.174" TextChanged="TextBox_TextChanged_1" BorderBrush="#FFB91E3A"/>
         <Button x:Name="btnAtualizar" Content="Atualizar Notas" HorizontalAlignment="Left" Margin="264,286,0,0" VerticalAlignment="Top" Width="96" Click="btnAtualizar_Click"/>
+        <Label x:Name="lblError" Content="" HorizontalAlignment="Left" Margin="270,87,0,0" VerticalAlignment="Top" Width="198"/>
     </Grid>
 </Window>

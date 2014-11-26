@@ -124,11 +124,34 @@ namespace WpfAppATM
         private void Button_Click_Enter(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
+            lblError.Content = string.Empty;
 
-            int valorSaque = Convert.ToInt32(txtResult.Text);//260;
+            var result = new Dictionary<int, Cedula>();
 
-            var result = Operations.Withdraw(cedulasNoCaixa, valorSaque);
-            //resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
+            try
+            {
+
+                int valorSaque;//260;
+                if (!Int32.TryParse(txtResult.Text, out valorSaque))
+                {
+                    throw new Exception("Valor inválido!");
+                }
+
+                result = Operations.Withdraw(cedulasNoCaixa, valorSaque);
+                //resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Data.Contains("result") && typeof(Dictionary<int, Cedula>) == ex.Data["result"].GetType())
+                {
+                    result = (Dictionary<int, Cedula>) ex.Data["result"];
+                    cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 10).Amount += (result.ContainsKey(10) ? result[10].Amount : 0);
+                    cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 50).Amount += (result.ContainsKey(50) ? result[50].Amount : 0);
+                    cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 100).Amount += (result.ContainsKey(100) ? result[100].Amount : 0);
+                }
+
+                lblError.Content = ex.Message;
+            }
 
             notasSacadas10.Text = (result.ContainsKey(10) ? result[10].Amount : 0).ToString();
             notasSacadas50.Text = (result.ContainsKey(50) ? result[50].Amount : 0).ToString();

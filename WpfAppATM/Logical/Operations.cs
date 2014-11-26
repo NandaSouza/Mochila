@@ -50,7 +50,7 @@ namespace WpfAppATM
                 foreach (var bill in sortedAmount)
                 {
                     //verifica se o valor somado autal + o valor da cédula é maior que o total requerido
-                    if (bill.Value + currentAmount <= requiredAmount)
+                    if (bill.Value + currentAmount <= requiredAmount && bill.Amount > 0)
                     {
                         billNotFound = false;
 
@@ -79,7 +79,9 @@ namespace WpfAppATM
 
                 if (billNotFound)
                 {
-                    throw new Exception("Não é possível sacar esse valor");
+                    var ex = new Exception("Não é possível sacar esse valor");
+                    ex.Data.Add("result", resultDictionary);
+                    throw ex;
                 }
             }
 
