@@ -23,9 +23,20 @@ namespace WpfAppATM
     {
         int[] resultado = new int[3];
 
+        List<Cedula> cedulasNoCaixa = new List<Cedula> { 
+            new Cedula() { Value = 10, Amount = 10, }, 
+            new Cedula() { Value = 50, Amount = 10, },
+            new Cedula() { Value = 100, Amount = 10, } 
+        };
+
         public MainWindow()
         {
             InitializeComponent();
+
+
+            nota10.Text = cedulasNoCaixa[0].Amount.ToString();
+            nota50.Text = cedulasNoCaixa[1].Amount.ToString();
+            nota100.Text = cedulasNoCaixa[2].Amount.ToString();
         }
 
         public static void FormatoMoeda(ref TextBox txt)
@@ -112,25 +123,27 @@ namespace WpfAppATM
 
         private void Button_Click_Enter(object sender, RoutedEventArgs e)
         {
-
             Button b = (Button)sender;
 
-            int[] valor = { 10, 50, 100 };
-            int[] valor2 = { 100, 50, 10 };
-            int[] quantidade = { 100, 100, 100 };
             int valorSaque = Convert.ToInt32(txtResult.Text);//260;
 
-            var cedulasNoCaixa = new List<Cedula> { 
-                new Cedula() { Value = 10, Amount = 10, }, 
-                new Cedula() { Value = 50, Amount = 10, },
-                new Cedula() { Value = 100, Amount = 10, } 
-            };
             var result = Operations.Withdraw(cedulasNoCaixa, valorSaque);
             //resultado = Operations.Withdraw(quantidade, valor, 3, valorSaque);
 
-            nota10.Text = (result.ContainsKey(10) ? result[10].Amount : 0).ToString();
-            nota50.Text = (result.ContainsKey(50) ? result[50].Amount : 0).ToString();
-            nota100.Text = (result.ContainsKey(100) ? result[100].Amount : 0).ToString();
+            notasSacadas10.Text = (result.ContainsKey(10) ? result[10].Amount : 0).ToString();
+            notasSacadas50.Text = (result.ContainsKey(50) ? result[50].Amount : 0).ToString();
+            notasSacadas100.Text = (result.ContainsKey(100) ? result[100].Amount : 0).ToString();
+
+            nota10.Text = cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 10).Amount.ToString();
+            nota50.Text = cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 50).Amount.ToString();
+            nota100.Text = cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 100).Amount.ToString();
+        }
+
+        private void btnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 10).Amount = Int32.Parse(nota10.Text);
+            cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 50).Amount = Int32.Parse(nota50.Text);
+            cedulasNoCaixa.FirstOrDefault(txt => txt.Value == 100).Amount = Int32.Parse(nota100.Text);
         }
     }
 }
